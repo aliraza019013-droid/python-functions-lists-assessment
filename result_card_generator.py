@@ -1,97 +1,116 @@
-"""Generate a formatted result card for one student."""
+"""Student Result Card Generator.
 
+Reads one student's name, roll number and marks in five subjects, then
+prints a result card with total, percentage, grade and final status.
+A student fails if ANY subject mark is below the pass mark.
+"""
 
-def get_valid_marks(subject):
-    # Ask repeatedly until the entered subject marks are an integer from 0 to 100.
-    while True:
-        try:
-            marks = int(input(f"Enter marks for {subject} (0-100): "))
-            if 0 <= marks <= 100:
-                return marks
-            print("Invalid marks. Enter a value between 0 and 100.")
-        except ValueError:
-            print("Invalid input. Please enter a whole number.")
-
-
-def calculate_percentage(total, max_total):
-    # Calculate the percentage from obtained and maximum marks.
-    if max_total <= 0:
-        return 0.0
-    return (total / max_total) * 100
-
-
-def get_grade(percentage):
-    # Convert the percentage into the required letter grade.
-    if percentage >= 90:
-        return "A+"
-    elif percentage >= 80:
-        return "A"
-    elif percentage >= 70:
-        return "B"
-    elif percentage >= 60:
-        return "C"
-    elif percentage >= 50:
-        return "D"
-    return "Fail"
+# ---- Constants (no magic numbers) ----
+SUBJECTS = ["English", "Mathematics", "Computer", "Physics", "Urdu"]
+MIN_MARK, MAX_MARK = 0, 100
+PASS_MARK = 40                      # every subject must reach this mark
+MAX_TOTAL = len(SUBJECTS) * MAX_MARK
+GRADE_SCALE = [(90, "A+"), (80, "A"), (70, "B"), (60, "C"), (50, "D")]
+PASS, FAIL = "Pass", "Fail"
+CARD_WIDTH = 34
 
 
 def format_name(name):
-    # Remove extra spaces and capitalize each part of the student's name.
+    """Remove outer spaces and capitalise each word."""
     return name.strip().title()
 
 
-def get_valid_roll_number():
-    # Accept a roll number only when it contains digits and nothing else.
+def get_valid_name():
+    """Ask for a name until it is not empty; return the cleaned name."""
     while True:
-        roll_number = input("Enter roll number (digits only): ").strip()
-        if roll_number.isdigit():
+        name = format_name(input("Student name: "))
+        if name:
+            return name
+        print("Error: Name cannot be empty. Please try again.")
+
+
+def get_valid_roll_number():
+    """Ask for a roll number until it contains digits only."""
+    while True:
+        roll_number = input("Roll number: ").strip()
+        if roll_number.isdigit() and roll_number.isascii():
             return roll_number
-        print("Invalid roll number. Use digits only (for example, 1025).")
+        print("Error: Roll number must contain digits only (no letters, spaces or symbols).")
+
+
+def get_valid_marks(subject):
+    """Ask for a whole number from MIN_MARK to MAX_MARK for one subject."""
+    while True:
+        text = input(f"{subject}: ").strip()
+        try:
+            if "_" in text:                 # int() would accept "1_0"; reject it
+                raise ValueError
+            marks = int(text)
+        except ValueError:
+            print(f"Error: Marks for {subject} must be a whole number.")
+            continue
+        if MIN_MARK <= marks <= MAX_MARK:
+            return marks
+        print(f"Error: Marks for {subject} must be between {MIN_MARK} and {MAX_MARK}.")
+
+
+def calculate_percentage(total, max_total):
+    """Return the overall percentage."""
+    return total * 100 / max_total
+
+
+def get_grade(percentage):
+    """Return the letter grade for a percentage using GRADE_SCALE."""
+    for minimum, grade in GRADE_SCALE:
+        if percentage >= minimum:
+            return grade
+    return FAIL
+
+
+def get_final_result(marks, percentage):
+    """Return (grade, status). Any mark below PASS_MARK means Fail."""
+    if not all(mark >= PASS_MARK for mark in marks):
+        return FAIL, FAIL
+    grade = get_grade(percentage)
+    status = FAIL if grade == FAIL else PASS
+    return grade, status
+
+
+def display_result_card(name, roll_number, marks, total, percentage, grade, status):
+    """Print the formatted result card."""
+    line = "-" * CARD_WIDTH
+    print("\n" + "=" * CARD_WIDTH)
+    print("RESULT CARD".center(CARD_WIDTH).rstrip())
+    print("=" * CARD_WIDTH)
+    print(f"Student Name : {name}")
+    print(f"Roll Number  : {roll_number}")
+    print(line)
+    for subject, mark in zip(SUBJECTS, marks):
+        print(f"{subject:<12} : {mark}")
+    failed = [f"{s} ({m})" for s, m in zip(SUBJECTS, marks) if m < PASS_MARK]
+    if failed:
+        print(f"{'Failed In':<12} : {', '.join(failed)}")
+    print(line)
+    print(f"Total Obtained: {total} / {MAX_TOTAL}")
+    print(f"Percentage   : {percentage:.2f}%")
+    print(f"Letter Grade : {grade}")
+    print(f"Final Status : {status}")
+    print("=" * CARD_WIDTH)
 
 
 def main():
-    # Collect student details, calculate the result, and print the result card.
     print("=== Student Result Card Generator ===")
-    while True:
-        raw_name = input("Enter student name: ")
-        student_name = format_name(raw_name)
-        if student_name:
-            break
-        print("Name cannot be empty.")
-
-    roll_number = get_valid_roll_number()
-    subjects = ["English", "Mathematics", "Computer", "Physics", "Urdu"]
-    subject_marks = {}
-
-    for subject in subjects:
-        subject_marks[subject] = get_valid_marks(subject)
-
-    total = sum(subject_marks.values())
-    max_total = len(subjects) * 100
-    percentage = calculate_percentage(total, max_total)
-    grade = get_grade(percentage)
-
-    # A student must score at least 40 in every subject to pass.
-    passed = all(mark >= 40 for mark in subject_marks.values())
-    status = "Pass" if passed else "Fail"
-    final_grade = grade if passed else "Fail"
-
-    print("\n" + "=" * 42)
-    print("             STUDENT RESULT CARD")
-    print("=" * 42)
-    print(f"Student Name : {student_name}")
-    print(f"Roll Number  : {roll_number}")
-    print("-" * 42)
-    print(f"{'Subject':<22}{'Marks':>10}")
-    print("-" * 42)
-    for subject, marks in subject_marks.items():
-        print(f"{subject:<22}{marks:>10}")
-    print("-" * 42)
-    print(f"{'Total Obtained':<22}{total:>10} / {max_total}")
-    print(f"{'Percentage':<22}{percentage:>9.2f}%")
-    print(f"{'Letter Grade':<22}{final_grade:>10}")
-    print(f"{'Final Status':<22}{status:>10}")
-    print("=" * 42)
+    try:
+        name = get_valid_name()
+        roll_number = get_valid_roll_number()
+        marks = [get_valid_marks(subject) for subject in SUBJECTS]
+    except EOFError:
+        print("\nError: Input ended before all values were entered.")
+        return
+    total = sum(marks)
+    percentage = calculate_percentage(total, MAX_TOTAL)
+    grade, status = get_final_result(marks, percentage)
+    display_result_card(name, roll_number, marks, total, percentage, grade, status)
 
 
 if __name__ == "__main__":

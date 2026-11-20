@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" width="1000" height="260" role="img" aria-label="Python Functions &amp; Lists Assessment banner">
+<title>Python Functions &amp; Lists Assessment banner</title><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#6d28d9"/></linearGradient></defs>
+<rect width="1000" height="260" fill="#ffffff"/>
+<rect width="1000" height="260" fill="url(#g)"/>
+<text x="40" y="92.7" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="42" font-weight="800" fill="#ffffff" text-anchor="start">Python Functions</text>
+<text x="40" y="140.7" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="42" font-weight="800" fill="#ffffff" text-anchor="start">&amp; Lists Assessment</text>
+<text x="40" y="171.9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="400" fill="#e0e7ff" text-anchor="start">Result cards &amp; class analysis with functions and lists</text>
+<rect x="40" y="196" width="102" height="30" rx="15" fill="#ffffff" fill-opacity="0.18" stroke="#ffffff" stroke-opacity="0.55"/>
+<text x="90.9" y="215.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">functions</text>
+<rect x="151.8" y="196" width="69" height="30" rx="15" fill="#ffffff" fill-opacity="0.18" stroke="#ffffff" stroke-opacity="0.55"/>
+<text x="186.3" y="215.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">lists</text>
+<rect x="230.8" y="196" width="69" height="30" rx="15" fill="#ffffff" fill-opacity="0.18" stroke="#ffffff" stroke-opacity="0.55"/>
+<text x="265.3" y="215.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">loops</text>
+<rect x="309.8" y="196" width="110" height="30" rx="15" fill="#ffffff" fill-opacity="0.18" stroke="#ffffff" stroke-opacity="0.55"/>
+<text x="364.8" y="215.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">validation</text>
+<rect x="620" y="36" width="360" height="188" rx="12" fill="#0f172a"/>
+<circle cx="640" cy="55" r="5" fill="#ef4444"/>
+<circle cx="658" cy="55" r="5" fill="#f59e0b"/>
+<circle cx="676" cy="55" r="5" fill="#22c55e"/>
+<text x="800" y="58.9" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="11" font-weight="400" fill="#94a3b8" text-anchor="middle">result card / class marks</text>
+<text x="640" y="90" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="12" xml:space="preserve"><tspan fill="#c084fc">for </tspan><tspan fill="#e2e8f0">minimum, grade </tspan><tspan fill="#c084fc">in </tspan><tspan fill="#e2e8f0">GRADE_SCALE:</tspan></text>
+<text x="640" y="111" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="12" xml:space="preserve"><tspan fill="#c084fc">    if </tspan><tspan fill="#e2e8f0">percentage &gt;= minimum:</tspan></text>
+<text x="640" y="132" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="12" xml:space="preserve"><tspan fill="#c084fc">        return </tspan><tspan fill="#e2e8f0">grade</tspan></text>
+<text x="640" y="153" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="12" xml:space="preserve"><tspan fill="#e2e8f0">passed = </tspan><tspan fill="#60a5fa">all</tspan><tspan fill="#e2e8f0">(m &gt;= PASS_MARK </tspan><tspan fill="#c084fc">for </tspan><tspan fill="#e2e8f0">m </tspan><tspan fill="#c084fc">in </tspan><tspan fill="#e2e8f0">marks)</tspan></text>
+<text x="640" y="174" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="12" xml:space="preserve"><tspan fill="#e2e8f0">highest = </tspan><tspan fill="#60a5fa">max</tspan><tspan fill="#e2e8f0">(student_marks)</tspan></text>
+<text x="640" y="195" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="12" xml:space="preserve"><tspan fill="#e2e8f0">lowest = </tspan><tspan fill="#60a5fa">min</tspan><tspan fill="#e2e8f0">(student_marks)</tspan></text>
+</svg>

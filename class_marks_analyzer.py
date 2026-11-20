@@ -1,91 +1,106 @@
-"""Analyze marks for a class of students."""
+"""Class Marks Analyzer.
+
+Collects each student's name and marks in two parallel lists, then reports
+the class average, highest and lowest marks (with tied students), pass/fail
+counts, students above average and the marks sorted high to low.
+"""
+
+MIN_STUDENTS = 1
+MIN_MARK, MAX_MARK = 0, 100
+PASS_MARK = 40
+LABEL_WIDTH = 19            # width used to align the report labels
 
 
-def get_valid_integer(prompt, minimum=1):
-    # Keep asking until the user enters an integer at least as large as minimum.
+def get_valid_integer(prompt, minimum):
+    """Ask for a whole number that is at least `minimum`."""
     while True:
+        text = input(prompt).strip()
         try:
-            value = int(input(prompt))
-            if value >= minimum:
-                return value
-            print(f"Please enter a number greater than or equal to {minimum}.")
+            if "_" in text:                 # int() would accept "1_0"; reject it
+                raise ValueError
+            value = int(text)
         except ValueError:
-            print("Invalid input. Please enter a whole number.")
+            print("Error: Please enter a whole number.")
+            continue
+        if value >= minimum:
+            return value
+        print(f"Error: Value must be at least {minimum}.")
+
+
+def get_valid_student_name():
+    """Ask for a non-empty student name."""
+    while True:
+        name = input("Name: ").strip()
+        if name:
+            return name
+        print("Error: Name cannot be empty. Please try again.")
 
 
 def get_valid_mark(student_name):
-    # Ask repeatedly until a student's mark is a whole number from 0 to 100.
+    """Ask for a whole number from MIN_MARK to MAX_MARK for one student."""
     while True:
+        text = input("Marks: ").strip()
         try:
-            mark = int(input(f"Enter marks for {student_name} (0-100): "))
-            if 0 <= mark <= 100:
-                return mark
-            print("Invalid marks. Enter a value between 0 and 100.")
+            if "_" in text:
+                raise ValueError
+            mark = int(text)
         except ValueError:
-            print("Invalid input. Please enter a whole number.")
+            print(f"Error: Marks for {student_name} must be a whole number.")
+            continue
+        if MIN_MARK <= mark <= MAX_MARK:
+            return mark
+        print(f"Error: Marks for {student_name} must be between {MIN_MARK} and {MAX_MARK}.")
 
 
-def display_extreme_students(student_names, student_marks, target_mark):
-    # Display every student whose marks match the selected highest or lowest mark.
-    achievers = [
-        name for name, mark in zip(student_names, student_marks)
-        if mark == target_mark
-    ]
-    print(", ".join(achievers))
+def display_extreme_students(label, mark, student_names, student_marks):
+    """Show the highest/lowest mark and every student tied on it."""
+    holders = [name for name, m in zip(student_names, student_marks) if m == mark]
+    print(f"{label.capitalize() + ' marks':<{LABEL_WIDTH}}: {mark}")
+    print(f"Student(s) with {label} marks: {', '.join(holders)}")
+
+
+def display_above_average(student_names, student_marks, average):
+    """List every student whose marks are above the class average."""
+    above = [(n, m) for n, m in zip(student_names, student_marks) if m > average]
+    print("Students above class average:")
+    if not above:
+        print("- None")
+    for name, mark in above:
+        print(f"- {name} ({mark})")
 
 
 def main():
-    # Collect class data and display a summary of student performance.
     print("=== Class Marks Analyzer ===")
-    number_of_students = get_valid_integer("How many students are in the class? ")
-
     student_names = []
     student_marks = []
+    try:
+        count = get_valid_integer("How many students are in the class? ", MIN_STUDENTS)
+        for number in range(1, count + 1):
+            print(f"\nStudent {number}")
+            name = get_valid_student_name()
+            mark = get_valid_mark(name)
+            student_names.append(name)
+            student_marks.append(mark)
+    except EOFError:
+        print("\nError: Input ended before all values were entered.")
+        return
 
-    for index in range(number_of_students):
-        print(f"\nStudent {index + 1}")
-        while True:
-            name = input("Enter student name: ").strip()
-            if name:
-                student_names.append(name.title())
-                break
-            print("Name cannot be empty.")
-        student_marks.append(get_valid_mark(student_names[-1]))
+    average = sum(student_marks) / len(student_marks)
+    highest = max(student_marks)
+    lowest = min(student_marks)
+    passing = len([m for m in student_marks if m >= PASS_MARK])
+    failing = len(student_marks) - passing
+    ranked_marks = sorted(student_marks, reverse=True)
 
-    class_average = sum(student_marks) / len(student_marks)
-    highest_marks = max(student_marks)
-    lowest_marks = min(student_marks)
-    passing_students = sum(1 for mark in student_marks if mark >= 50)
-    failing_students = len(student_marks) - passing_students
-
-    above_average_students = [
-        f"{name} ({mark})"
-        for name, mark in zip(student_names, student_marks)
-        if mark > class_average
-    ]
-    descending_marks = sorted(student_marks, reverse=True)
-
-    print("\n========== CLASS PERFORMANCE REPORT ==========")
-    print(f"Number of students : {len(student_names)}")
-    print(f"Class average      : {class_average:.2f}")
-    print(f"Highest marks      : {highest_marks}")
-    print("Student(s) with highest marks: ", end="")
-    display_extreme_students(student_names, student_marks, highest_marks)
-    print(f"Lowest marks       : {lowest_marks}")
-    print("Student(s) with lowest marks: ", end="")
-    display_extreme_students(student_names, student_marks, lowest_marks)
-    print(f"Passing students   : {passing_students}")
-    print(f"Failing students   : {failing_students}")
-
-    print("Students above class average:")
-    if above_average_students:
-        for student in above_average_students:
-            print(f"- {student}")
-    else:
-        print("- None")
-
-    print(f"Marks (highest to lowest): {descending_marks}")
-    print("=" * 48)
+    print("\n--- Class Analysis ---")
+    print(f"{'Number of students':<{LABEL_WIDTH}}: {len(student_marks)}")
+    print(f"{'Class average':<{LABEL_WIDTH}}: {average:.2f}")
+    display_extreme_students("highest", highest, student_names, student_marks)
+    display_extreme_students("lowest", lowest, student_names, student_marks)
+    print(f"{'Passing students':<{LABEL_WIDTH}}: {passing}")
+    print(f"{'Failing students':<{LABEL_WIDTH}}: {failing}")
+    display_above_average(student_names, student_marks, average)
+    print(f"Marks (highest to lowest): {ranked_marks}")
 
 
 if __name__ == "__main__":

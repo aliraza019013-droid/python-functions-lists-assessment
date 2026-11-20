@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" role="img" aria-label="Overview of both tasks">
+<title>Overview of both tasks</title><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="1000" height="470" fill="#ffffff"/>
+<rect x="20" y="16" width="470" height="438" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<path d="M20,28 a12,12 0 0 1 12,-12 h446 a12,12 0 0 1 12,12 v26 h-470 z" fill="#1e3a8a"/>
+<text x="40" y="41.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="start">Task 1 · Student Result Card Generator</text>
+<rect x="34" y="72" width="442" height="32" rx="8" fill="#f1f5f9"/><rect x="34" y="72" width="5" height="32" rx="2" fill="#475569"/>
+<text x="50" y="92.5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#334155" text-anchor="start">File</text>
+<text x="132" y="92.5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">result_card_generator.py</text>
+<rect x="34" y="112" width="442" height="32" rx="8" fill="#ede9fe"/><rect x="34" y="112" width="5" height="32" rx="2" fill="#7c3aed"/>
+<text x="50" y="132.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="start">Topic</text>
+<text x="132" y="132.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Functions and string methods</text>
+<rect x="34" y="152" width="442" height="50" rx="8" fill="#dbeafe"/><rect x="34" y="152" width="5" height="50" rx="2" fill="#2563eb"/>
+<text x="50" y="181.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#2563eb" text-anchor="start">Input</text>
+<text x="132" y="173.2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Name, roll number,</text>
+<text x="132" y="189.9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">marks in five subjects</text>
+<rect x="34" y="210" width="442" height="68" rx="8" fill="#ede9fe"/><rect x="34" y="210" width="5" height="68" rx="2" fill="#7c3aed"/>
+<text x="50" y="248.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="start">Rules</text>
+<text x="132" y="231.9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Marks: whole number 0–100; roll: digits only</text>
+<text x="132" y="248.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Any mark below 40 → Fail</text>
+<text x="132" y="265.2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Grade scale: A+, A, B, C, D, Fail</text>
+<rect x="34" y="286" width="442" height="50" rx="8" fill="#dcfce7"/><rect x="34" y="286" width="5" height="50" rx="2" fill="#16a34a"/>
+<text x="50" y="315.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#16a34a" text-anchor="start">Output</text>
+<text x="132" y="307.2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Result card: total, percentage,</text>
+<text x="132" y="323.9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">letter grade, final status</text>
+<rect x="34" y="344" width="442" height="50" rx="8" fill="#f1f5f9"/><rect x="34" y="344" width="5" height="50" rx="2" fill="#475569"/>
+<text x="50" y="373.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#334155" text-anchor="start">Concepts</text>
+<text x="132" y="365.2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Functions, strip(), title(), isdigit(),</text>
+<text x="132" y="381.9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">all(), f-strings, ValueError handling</text>
+<rect x="510" y="16" width="470" height="438" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<path d="M510,28 a12,12 0 0 1 12,-12 h446 a12,12 0 0 1 12,12 v26 h-470 z" fill="#1e3a8a"/>
+<text x="530" y="41.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="start">Task 2 · Class Marks Analyzer</text>
+<rect x="524" y="72" width="442" height="32" rx="8" fill="#f1f5f9"/><rect x="524" y="72" width="5" height="32" rx="2" fill="#475569"/>
+<text x="540" y="92.5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#334155" text-anchor="start">File</text>
+<text x="622" y="92.5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">class_marks_analyzer.py</text>
+<rect x="524" y="112" width="442" height="32" rx="8" fill="#ede9fe"/><rect x="524" y="112" width="5" height="32" rx="2" fill="#7c3aed"/>
+<text x="540" y="132.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="start">Topic</text>
+<text x="622" y="132.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Lists, loops and list comprehensions</text>
+<rect x="524" y="152" width="442" height="50" rx="8" fill="#dbeafe"/><rect x="524" y="152" width="5" height="50" rx="2" fill="#2563eb"/>
+<text x="540" y="181.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#2563eb" text-anchor="start">Input</text>
+<text x="622" y="173.2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Number of students, then</text>
+<text x="622" y="189.9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">name and marks for each student</text>
+<rect x="524" y="210" width="442" height="50" rx="8" fill="#ede9fe"/><rect x="524" y="210" width="5" height="50" rx="2" fill="#7c3aed"/>
+<text x="540" y="239.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="start">Rules</text>
+<text x="622" y="231.2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Count ≥ 1; marks whole number 0–100</text>
+<text x="622" y="247.9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Pass mark 40; ties are all listed</text>
+<rect x="524" y="268" width="442" height="50" rx="8" fill="#dcfce7"/><rect x="524" y="268" width="5" height="50" rx="2" fill="#16a34a"/>
+<text x="540" y="297.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#16a34a" text-anchor="start">Output</text>
+<text x="622" y="289.2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Average, highest / lowest + students,</text>
+<text x="622" y="305.9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">pass / fail, above average, sorted marks</text>
+<rect x="524" y="326" width="442" height="50" rx="8" fill="#f1f5f9"/><rect x="524" y="326" width="5" height="50" rx="2" fill="#475569"/>
+<text x="540" y="355.6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#334155" text-anchor="start">Concepts</text>
+<text x="622" y="347.2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">Parallel lists, append(), len(), sum(),</text>
+<text x="622" y="363.9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#0f172a" text-anchor="start">max(), min(), sorted(), list comprehensions</text>
+</svg>
